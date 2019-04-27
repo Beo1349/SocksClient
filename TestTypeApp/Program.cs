@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SimpleInjector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestTypeApp.Test.IoC;
 
 namespace TestTypeApp
 {
@@ -16,7 +18,10 @@ namespace TestTypeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Container container = new Container();
+            container.RegisterSingleton<IFormOpener, FormOpener>();
+            FormOpener formOpener = new FormOpener(container);
+            Application.Run(new MainForm(formOpener));
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 
+
 namespace TestTypeApp.REST
 {
     class TestRestClient
@@ -21,6 +22,9 @@ namespace TestTypeApp.REST
 
             request.AddParameter("connectionstring", someText); 
             IRestResponse response = client.Execute(request);
+
+           
+
             return response.Content; 
         }
 
