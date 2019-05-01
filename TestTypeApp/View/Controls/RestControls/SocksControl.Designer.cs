@@ -38,9 +38,7 @@
             this.socksColourfalphaEdit = new DevExpress.XtraEditors.TextEdit();
             this.socksSizeEdit = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
-            this.ComboBox1 = new System.Windows.Forms.ComboBox();
             this.socksTypeEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ComboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.socksNameEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socksManufactureEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socksColourvalueEdit.Properties)).BeginInit();
@@ -135,40 +133,20 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Sock size:";
             // 
-            // ComboBox1
-            // 
-            this.ComboBox1.FormattingEnabled = true;
-            this.ComboBox1.Location = new System.Drawing.Point(130, 63);
-            this.ComboBox1.Name = "ComboBox1";
-            this.ComboBox1.Size = new System.Drawing.Size(90, 21);
-            this.ComboBox1.TabIndex = 3;
-            this.ComboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
-            // 
             // socksTypeEdit
             // 
             this.socksTypeEdit.Enabled = false;
             this.socksTypeEdit.Location = new System.Drawing.Point(17, 64);
             this.socksTypeEdit.Name = "socksTypeEdit";
             this.socksTypeEdit.Size = new System.Drawing.Size(107, 20);
-            this.socksTypeEdit.TabIndex = 4;
-            this.socksTypeEdit.EditValueChanged += new System.EventHandler(this.socksNameEdit_EditValueChanged);
-            // 
-            // ComboBox2
-            // 
-            this.ComboBox2.FormattingEnabled = true;
-            this.ComboBox2.Location = new System.Drawing.Point(130, 141);
-            this.ComboBox2.Name = "ComboBox2";
-            this.ComboBox2.Size = new System.Drawing.Size(90, 21);
-            this.ComboBox2.TabIndex = 5;
-            this.ComboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.socksTypeEdit.TabIndex = 17;
+            this.socksTypeEdit.EditValueChanged += new System.EventHandler(this.socksTypeEdit_EditValueChanged);
             // 
             // SocksControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ComboBox2);
             this.Controls.Add(this.socksTypeEdit);
-            this.Controls.Add(this.ComboBox1);
             this.Controls.Add(this.socksSizeEdit);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.socksNameEdit);
@@ -180,7 +158,7 @@
             this.Controls.Add(this.socksColourvalueEdit);
             this.Controls.Add(this.label4);
             this.Name = "SocksControl";
-            this.Size = new System.Drawing.Size(246, 213);
+            this.Size = new System.Drawing.Size(234, 237);
             ((System.ComponentModel.ISupportInitialize)(this.socksNameEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.socksManufactureEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.socksColourvalueEdit.Properties)).EndInit();
@@ -204,8 +182,6 @@
         private DevExpress.XtraEditors.TextEdit socksColourfalphaEdit;
         private DevExpress.XtraEditors.TextEdit socksSizeEdit;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox ComboBox1;
         private DevExpress.XtraEditors.TextEdit socksTypeEdit;
-        private System.Windows.Forms.ComboBox ComboBox2;
     }
 }

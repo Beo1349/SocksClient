@@ -19,6 +19,9 @@ namespace TestTypeApp.Client
         {
             dto.name = this.name;
             dto.size = this.size;
+            dto.color = this.color;
+            dto.manufacture = this.manufacture;
+            dto.type = this.type;
         }
 
         public CSocks(Socks socks) : base(socks)

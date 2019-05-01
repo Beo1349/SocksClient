@@ -23,6 +23,8 @@ namespace TestTypeApp
         public event EventHandler<EventArgs> Save;
         public event EventHandler<EventArgs> Delete;
         public event EventHandler<EventArgs> Add;
+        public event EventHandler<EventArgs> getCurrentItem;
+
         CMaterial currentItem;
 
         public IList<CMaterial> ItemList
@@ -48,6 +50,7 @@ namespace TestTypeApp
         private void typesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             materialControl1.DataSource = (CMaterial)typesListBox.SelectedItem;
+            //getCurrentItem(sender, e);
         }
 
         public CMaterial CurrentItem

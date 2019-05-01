@@ -21,9 +21,8 @@ namespace TestTypeApp.REST
 
         public List<CSocks> readAll()
         {
-            var request = new RestRequest("dbtest/sock", Method.GET);
-            //client.UseJson();
-            //request.AddParameter("connectionstring", someText);
+            var request = new RestRequest("socks/get", Method.GET);
+
             var response = client.Execute<List<CSocks>>(request);
 
             return response.Data;
@@ -31,25 +30,16 @@ namespace TestTypeApp.REST
         public void save(List<CSocks> toSave)
         {
             JsonSerializer se = new JsonSerializer();
-            var request = new RestRequest("dbtest/sock", Method.PUT);
-           // Socks socks = new Socks() { Name = "faewrf" };
+            var request = new RestRequest("socks/add", Method.PUT);
             request.AddParameter("socks", se.Serialize(toSave));
-            //  request.AddJsonBody(toSave);
-            //client.UseJson();
-            //request.AddParameter("connectionstring", someText);
-            // var response = 
             client.Execute<List<CSocks>>(request);
-
-           // return response.Data;
         }
         public void delete(List<int> toDelete)
         {
             JsonSerializer se = new JsonSerializer();
-            var request = new RestRequest("dbtest/sock", Method.DELETE);
+            var request = new RestRequest("socks/delete", Method.DELETE);
             request.AddParameter("socksDel", se.Serialize(toDelete));
             client.Execute<List<int>>(request);
-
-            // return response.Data;
         }
     }
 }

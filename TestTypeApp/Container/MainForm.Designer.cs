@@ -35,6 +35,8 @@
             this.materialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.socksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +44,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.socksDBToolStripMenuItem,
-            this.restServicesToolStripMenuItem});
+            this.restServicesToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -83,7 +86,8 @@
             // restServicesToolStripMenuItem
             // 
             this.restServicesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.socksToolStripMenuItem});
+            this.socksToolStripMenuItem,
+            this.storageToolStripMenuItem});
             this.restServicesToolStripMenuItem.Name = "restServicesToolStripMenuItem";
             this.restServicesToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.restServicesToolStripMenuItem.Text = "RestServices";
@@ -91,11 +95,25 @@
             // socksToolStripMenuItem
             // 
             this.socksToolStripMenuItem.Name = "socksToolStripMenuItem";
-            this.socksToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.socksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.socksToolStripMenuItem.Text = "Socks";
             this.socksToolStripMenuItem.Click += new System.EventHandler(this.socksToolStripMenuItem_Click);
             // 
-            // Form2
+            // storageToolStripMenuItem
+            // 
+            this.storageToolStripMenuItem.Name = "storageToolStripMenuItem";
+            this.storageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.storageToolStripMenuItem.Text = "Storage";
+            this.storageToolStripMenuItem.Click += new System.EventHandler(this.storageToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.reportToolStripMenuItem.Text = "Report";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,5 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem materialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restServicesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem socksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem storageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }
 }

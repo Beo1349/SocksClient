@@ -17,12 +17,15 @@ namespace TestTypeApp
         public ManufactureSetupControl()
         {
             InitializeComponent();
+
         }
 
         public event EventHandler<EventArgs> Refresh;
         public event EventHandler<EventArgs> Save;
         public event EventHandler<EventArgs> Delete;
         public event EventHandler<EventArgs> Add;
+        public event EventHandler<EventArgs> getCurrentItem;
+
         CManufacture currentItem;
 
         public IList<CManufacture> ItemList

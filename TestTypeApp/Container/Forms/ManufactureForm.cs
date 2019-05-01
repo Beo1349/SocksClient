@@ -19,11 +19,7 @@ namespace TestTypeApp
             InitializeComponent();
             ManufactureRef.ManufactureServiceClient service = new ManufactureRef.ManufactureServiceClient();
             ModelManufacture model = new ModelManufacture(service);
-            ManufacturePresenter presenter = new ManufacturePresenter(model, manufactureSetupControl1);
-
-            //TestRestClient client = new TestRestClient();
-           // MessageBox.Show(client.DbTest("some text"));
-            
+            ManufacturePresenter presenter = new ManufacturePresenter(model, manufactureSetupControl1);          
         }
     }
 }

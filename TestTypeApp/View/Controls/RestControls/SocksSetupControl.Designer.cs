@@ -96,10 +96,10 @@
             // 
             // socksControl1
             // 
-            //this.socksControl1.DataSource = null;
+            this.socksControl1.DataSource = null;
             this.socksControl1.Location = new System.Drawing.Point(322, 11);
             this.socksControl1.Name = "socksControl1";
-            this.socksControl1.Size = new System.Drawing.Size(231, 213);
+            this.socksControl1.Size = new System.Drawing.Size(234, 237);
             this.socksControl1.TabIndex = 8;
             // 
             // SocksSetupControl
@@ -115,7 +115,7 @@
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.typesListBox);
             this.Name = "SocksSetupControl";
-            this.Size = new System.Drawing.Size(591, 260);
+            this.Size = new System.Drawing.Size(568, 260);
             this.ResumeLayout(false);
 
         }

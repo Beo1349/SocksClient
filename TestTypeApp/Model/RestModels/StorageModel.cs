@@ -7,25 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestTypeApp.Client;
+using TestTypeApp.Client.RestTypes;
+using TestTypeApp.REST;
 
 namespace TestTypeApp
 {
-    public class ModelTest : IBaseModel<CType>
+    public class StorageModel : IBaseModel<CStorage>
     {
-        TypeRef.TypeServiceClient service;
-        BindingList<CType> types;
-        List<CType> toSave;
+        StorageRestClient service;
+        BindingList<CStorage> types;
+        List<CStorage> toSave;
         List<int> toDelete;  
-        TestTypeApp.Client.Converter<TypeRef.type, CType> converter;
 
-        public ModelTest(TypeRef.TypeServiceClient service)
+        public StorageModel(StorageRestClient service)
         {
             this.service = service;
 
-            types = new BindingList<CType>();
-            toSave = new List<CType>();
+            types = new BindingList<CStorage>();
+            toSave = new List<CStorage>();
             toDelete = new List<int>();
-            converter = new TestTypeApp.Client.Converter<TypeRef.type, CType>();
             types.ListChanged += types_ListChanged;
         }
 
@@ -34,23 +34,14 @@ namespace TestTypeApp
             if (e.ListChangedType == ListChangedType.ItemChanged || 
                 e.ListChangedType == ListChangedType.ItemAdded)
             {
-                //toSave.Clear();
                 if(e.OldIndex != -1)
                 { 
                     toSave.Add(types[e.OldIndex]);
                     toSave = toSave.Distinct().ToList();
-                    //  toDelete.Add(types[e.OldIndex].Id);
                 }
-                //  toSave.Add(types[e.NewIndex]);
-                //    
-                //  MessageBox.Show(types.Count.ToString());
                 
             }
-            //if (e.ListChangedType == ListChangedType.ItemDeleted)
-            //{
-    
-            //}
-            
+           
         }
 
         public void Reload()
@@ -62,8 +53,7 @@ namespace TestTypeApp
                 toDelete.Clear();
                 toSave.Clear();
                 types.Clear();
-                converter.toClientType(this.service.readAll())
-                    .ForEach(n => types.Add(n));
+                this.service.readAll().ForEach(n => types.Add(n));
                 types.ListChanged += types_ListChanged;
 
 
@@ -78,9 +68,9 @@ namespace TestTypeApp
         {
             try
             {
-                service.save(new TestTypeApp.Client.Converter<TypeRef.type, CType>().toDto(toSave));
+                service.save(toSave);
 
-                toDelete.ForEach(n => service.delete(n));
+                service.delete(toDelete);
                 Reload();
             }
             catch (Exception ex)
@@ -88,13 +78,11 @@ namespace TestTypeApp
                 MessageBox.Show(ex.Message);
             }
         }
-        public void Delete(CType c)
+        public void Delete(CStorage c)
         {
             try
             {
-                toDelete.Add(c.Id);
-               // service.delete(toDelete.FirstOrDefault());
-               // Reload();
+                toDelete.Add(c.id);
             }
             catch(Exception ex)
             {
@@ -105,15 +93,8 @@ namespace TestTypeApp
         {
             try
             {
-                CType t = new CType();
-               // t.Id = 100;
-                t.Name = "some text";
-                //MessageBox.Show(t.Name);
-                //toSave.Add(t);
-                //toSave = toSave.Distinct().ToList();
+                CStorage t = new CStorage();
                 types.Add(t);
-                //Reload();
-               // MessageBox.Show("Ok!");
             }
             catch(Exception ex)
             {
@@ -121,7 +102,12 @@ namespace TestTypeApp
             }
         }
 
-        public BindingList<CType> ItemList
+        public void Add(CStorage c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BindingList<CStorage> ItemList
         {
             get
             {
@@ -130,30 +116,6 @@ namespace TestTypeApp
             set
             {
                 types = value;
-            }
-        }
-
-        public List<CType> SaveList
-        {
-            get
-            {
-                return toSave;
-            }
-            set
-            {
-                toSave = value;
-            }
-        }
-
-        public List<int> DeleteList
-        {
-            get
-            {
-                return toDelete;
-            }
-            set
-            {
-                toDelete = value;
             }
         }
 

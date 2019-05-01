@@ -34,23 +34,12 @@ namespace TestTypeApp
             if (e.ListChangedType == ListChangedType.ItemChanged ||
                 e.ListChangedType == ListChangedType.ItemAdded)
             {
-                //toSave.Clear();
                 if (e.OldIndex != -1)
                 {
                     toSave.Add(types[e.OldIndex]);
                     toSave = toSave.Distinct().ToList();
-                    //  toDelete.Add(types[e.OldIndex].Id);
                 }
-                //  toSave.Add(types[e.NewIndex]);
-                //    
-                //  MessageBox.Show(types.Count.ToString());
-
             }
-            //if (e.ListChangedType == ListChangedType.ItemDeleted)
-            //{
-
-            //}
-
         }
 
         public void Reload()
@@ -94,8 +83,6 @@ namespace TestTypeApp
             try
             {
                 toDelete.Add(c.Id);
-                // service.delete(toDelete.FirstOrDefault());
-                // Reload();
             }
             catch (Exception ex)
             {
@@ -107,19 +94,18 @@ namespace TestTypeApp
             try
             {
                 CManufacture t = new CManufacture();
-                // t.Id = 100;
                 t.Name = "some text";
-                //MessageBox.Show(t.Name);
-                //toSave.Add(t);
-                //toSave = toSave.Distinct().ToList();
                 types.Add(t);
-                //Reload();
-                // MessageBox.Show("Ok!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void Add(CManufacture c)
+        {
+            throw new NotImplementedException();
         }
 
         public BindingList<CManufacture> ItemList
@@ -133,30 +119,5 @@ namespace TestTypeApp
                 types = value;
             }
         }
-
-        public List<CManufacture> SaveList
-        {
-            get
-            {
-                return toSave;
-            }
-            set
-            {
-                toSave = value;
-            }
-        }
-
-        public List<int> DeleteList
-        {
-            get
-            {
-                return toDelete;
-            }
-            set
-            {
-                toDelete = value;
-            }
-        }
-
     }
 }

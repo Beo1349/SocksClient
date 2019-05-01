@@ -58,6 +58,9 @@
     <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -65,9 +68,11 @@
     <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -99,17 +104,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\RestTypes\ServiceTypes\CSocks.cs" />
+    <Compile Include="Client\ReportConverter.cs" />
+    <Compile Include="Client\RestTypes\CComposition.cs" />
+    <Compile Include="Client\RestTypes\CStorage.cs" />
+    <Compile Include="Client\RestTypes\ServiceTypes\Composition.cs" />
+    <Compile Include="Client\RestTypes\CSocks.cs" />
+    <Compile Include="Client\RestTypes\ServiceTypes\ReportComposition.cs" />
+    <Compile Include="Client\RestTypes\ServiceTypes\ReportSocks.cs" />
+    <Compile Include="Client\RestTypes\ServiceTypes\ReportStorage.cs" />
     <Compile Include="Client\RestTypes\ServiceTypes\Socks.cs" />
+    <Compile Include="Client\RestTypes\ServiceTypes\Storage.cs" />
     <Compile Include="Client\RestTypes\ServiceTypes\SubTypes\Color.cs" />
     <Compile Include="Client\SoapTypes\CManufacture.cs" />
     <Compile Include="Client\Converter.cs" />
     <Compile Include="Client\IConverter.cs" />
     <Compile Include="Client\SoapTypes\CMaterial.cs" />
-    <Compile Include="Client\SoapTypes\CTest.cs" />
     <Compile Include="Client\SoapTypes\CType.cs" />
     <Compile Include="Client\ITransportable.cs" />
     <Compile Include="Client\Transportable.cs" />
+    <Compile Include="Container\Forms\RepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container\Forms\RepForm.Designer.cs">
+      <DependentUpon>RepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Container\Forms\SocksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +146,18 @@
     <Compile Include="Container\Forms\ManufactureForm.Designer.cs">
       <DependentUpon>ManufactureForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Container\Forms\CompositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container\Forms\CompositionForm.Designer.cs">
+      <DependentUpon>CompositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Container\Forms\StorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Container\Forms\StorageForm.Designer.cs">
+      <DependentUpon>StorageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Container\Forms\TypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,12 +172,15 @@
     <Compile Include="Container\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\RestModels\CompositionModel.cs" />
     <Compile Include="Model\RestModels\ModelSocks.cs" />
+    <Compile Include="Model\RestModels\StorageModel.cs" />
     <Compile Include="Model\SoapModels\ModelManufacture.cs" />
     <Compile Include="Model\SoapModels\ModelMaterial.cs" />
-    <Compile Include="Model\SoapModels\ModelTest.cs" />
     <Compile Include="Model\SoapModels\ModelType.cs" />
     <Compile Include="Model\IBaseModel.cs" />
+    <Compile Include="Presenter\RestPresenters\CompositionPresenter.cs" />
+    <Compile Include="Presenter\RestPresenters\StoragePresenter.cs" />
     <Compile Include="Presenter\RestPresenters\SocksPresenter.cs" />
     <Compile Include="Presenter\SoapPresenters\ManufacturePresenter.cs" />
     <Compile Include="Presenter\SoapPresenters\MaterialPresenter.cs" />
@@ -161,8 +194,9 @@
     <Compile Include="ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="REST\CompositionRestClient.cs" />
+    <Compile Include="REST\StorageRestClient.cs" />
     <Compile Include="REST\SocksRestClient.cs" />
-    <Compile Include="REST\TestRestClient.cs" />
     <Compile Include="Service References\ManufactureRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +224,18 @@
     <Compile Include="View\Controls\RestControls\SocksSetupControl.Designer.cs">
       <DependentUpon>SocksSetupControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\RestControls\StorageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\RestControls\StorageControl.Designer.cs">
+      <DependentUpon>StorageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\RestControls\StorageSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\RestControls\StorageSetupControl.Designer.cs">
+      <DependentUpon>StorageSetupControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\SoapControls\ManufactureControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +260,30 @@
     <Compile Include="View\Controls\SoapControls\MaterialSetupControl.Designer.cs">
       <DependentUpon>MaterialSetupControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboManufactureSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboManufactureSetup.Designer.cs">
+      <DependentUpon>ComboManufactureSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboMaterialsSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboMaterialsSetup.Designer.cs">
+      <DependentUpon>ComboMaterialsSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboTypeSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\ComboTypeSetup.Designer.cs">
+      <DependentUpon>ComboTypeSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\CompositionSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SoapControls\SubControls\CompositionSetupControl.Designer.cs">
+      <DependentUpon>CompositionSetupControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IItemView.cs" />
     <Compile Include="View\Controls\SoapControls\TypeControl.cs">
       <SubType>UserControl</SubType>
@@ -228,6 +298,9 @@
       <DependentUpon>TypeSetupControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IBaseView.cs" />
+    <EmbeddedResource Include="Container\Forms\RepForm.resx">
+      <DependentUpon>RepForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Container\Forms\SocksForm.resx">
       <DependentUpon>SocksForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Container\Forms\ManufactureForm.resx">
       <DependentUpon>ManufactureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container\Forms\CompositionForm.resx">
+      <DependentUpon>CompositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Container\Forms\StorageForm.resx">
+      <DependentUpon>StorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Container\Forms\TypeForm.resx">
       <DependentUpon>TypeForm.cs</DependentUpon>
@@ -263,11 +342,26 @@
     <EmbeddedResource Include="View\Controls\RestControls\SocksSetupControl.resx">
       <DependentUpon>SocksSetupControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\RestControls\StorageControl.resx">
+      <DependentUpon>StorageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\RestControls\StorageSetupControl.resx">
+      <DependentUpon>StorageSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\SoapControls\ManufactureControl.resx">
       <DependentUpon>ManufactureControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\SoapControls\MaterialControl.resx">
       <DependentUpon>MaterialControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoapControls\SubControls\ComboManufactureSetup.resx">
+      <DependentUpon>ComboManufactureSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoapControls\SubControls\ComboMaterialsSetup.resx">
+      <DependentUpon>ComboMaterialsSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoapControls\SubControls\CompositionSetupControl.resx">
+      <DependentUpon>CompositionSetupControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\SoapControls\TypeControl.resx">
       <DependentUpon>TypeControl.cs</DependentUpon>
@@ -277,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\SoapControls\MaterialSetupControl.resx">
       <DependentUpon>MaterialSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SoapControls\SubControls\ComboTypeSetup.resx">
+      <DependentUpon>ComboTypeSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\SoapControls\TypeSetupControl.resx">
       <DependentUpon>TypeSetupControl.cs</DependentUpon>
@@ -420,6 +517,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.6.9</Version>
     </PackageReference>

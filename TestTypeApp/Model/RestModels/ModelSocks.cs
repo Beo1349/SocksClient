@@ -16,49 +16,31 @@ namespace TestTypeApp
     public class ModelSocks : IBaseModel<CSocks>
     {
         SocksRestClient client;
-        BindingList<CSocks> types;
+        BindingList<CSocks> socks;
         List<CSocks> toSave;
         List<int> toDelete;
-       // TestTypeApp.Client.Converter<CSocks, CSocks> converter;
 
         public ModelSocks(SocksRestClient client)
         {
             this.client = client;
-
-            types = new BindingList<CSocks>();
+            socks = new BindingList<CSocks>();
             toSave = new List<CSocks>();
             toDelete = new List<int>();
-         //   converter = new TestTypeApp.Client.Converter<CSocks, CSocks>();
-            types.ListChanged += types_ListChanged;
+            socks.ListChanged += socks_ListChanged;
         }
 
-        private void types_ListChanged(object sender, ListChangedEventArgs e)
+        private void socks_ListChanged(object sender, ListChangedEventArgs e)
         {
             if (e.ListChangedType == ListChangedType.ItemChanged ||
                 e.ListChangedType == ListChangedType.ItemAdded)
             {
-                //toSave.Clear();
                 if (e.OldIndex != -1)
                 {
-                    //types[e.OldIndex].Manufacture.id = 1;
-                 //   types[e.OldIndex].Name = "fwefw";
-                    //types[e.OldIndex].Size = 14;
-                    //types[e.OldIndex].Type.id = 177;
-                    //types[e.OldIndex].Type.name = "fref";
-                    //types[e.OldIndex].Manufacture.name = "dewf";
-                    toSave.Add(types[e.OldIndex]);
+                    toSave.Add(socks[e.OldIndex]);
                     toSave = toSave.Distinct().ToList();
-                    //  toDelete.Add(types[e.OldIndex].Id);
                 }
-                //  toSave.Add(types[e.NewIndex]);
-                //    
-                //  MessageBox.Show(types.Count.ToString());
 
             }
-            //if (e.ListChangedType == ListChangedType.ItemDeleted)
-            //{
-
-            //}
 
         }
 
@@ -66,15 +48,13 @@ namespace TestTypeApp
         {
             try
             {
-                types.ListChanged -= types_ListChanged;
+                socks.ListChanged -= socks_ListChanged;
 
                 toDelete.Clear();
                 toSave.Clear();
-                types.Clear();
-               // converter.toClientType(this.client.DbTest())
-               //   .ForEach(n => types.Add(n));
-               this.client.readAll().ForEach(n => types.Add(n));
-                types.ListChanged += types_ListChanged;
+                socks.Clear();
+               this.client.readAll().ForEach(n => socks.Add(n));
+                socks.ListChanged += socks_ListChanged;
 
 
             }
@@ -104,8 +84,6 @@ namespace TestTypeApp
             try
             {
                 toDelete.Add(c.id);
-                // client.delete(toDelete.FirstOrDefault());
-                // Reload();
             }
             catch (Exception ex)
             {
@@ -117,26 +95,10 @@ namespace TestTypeApp
             try
             {
                 CSocks t = new CSocks();
-                t.name = "some text";
-                ManufactureRef.manufacture m = new ManufactureRef.manufacture();
-                m.name = "some text";
-                TypeRef.type ct = new TypeRef.type();
-                ct.name = "some text";
-                Color c = new Color();
-                c.falpha = 0;
-                c.value = 0;
-
-                t.color = c;
-                t.manufacture = m;
-                t.type = ct;
-                // t.Id = 100;
-
-                //MessageBox.Show(t.Name);
-                //toSave.Add(t);
-                //toSave = toSave.Distinct().ToList();
-                types.Add(t);
-                //Reload();
-                // MessageBox.Show("Ok!");
+                t.name = "some socks";
+                t.color = new Color() { falpha = -16777216, value = 0 };
+                t.size = 15;
+                socks.Add(t);
             }
             catch (Exception ex)
             {
@@ -144,41 +106,21 @@ namespace TestTypeApp
             }
         }
 
+        public void Add(CSocks c)
+        {
+            throw new NotImplementedException();
+        }
+
         public BindingList<CSocks> ItemList
         {
             get
             {
-                return types;
+                return socks;
             }
             set
             {
-                types = value;
+                socks = value;
             }
         }
-
-        public List<CSocks> SaveList
-        {
-            get
-            {
-                return toSave;
-            }
-            set
-            {
-                toSave = value;
-            }
-        }
-
-        public List<int> DeleteList
-        {
-            get
-            {
-                return toDelete;
-            }
-            set
-            {
-                toDelete = value;
-            }
-        }
-
     }
 }

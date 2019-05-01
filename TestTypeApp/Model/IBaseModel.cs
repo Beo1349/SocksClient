@@ -14,8 +14,7 @@ namespace TestTypeApp
         void Reload();
         void Delete(ClietType c);
         void Add();
+        void Add(ClietType c);
         BindingList<ClietType> ItemList { get; set; }
-        List<ClietType> SaveList { get; set; }
-        List<int> DeleteList { get; set; }
     }
 }

@@ -56,15 +56,6 @@ namespace TestTypeApp.Presenter
 
         void view_Refresh(object sender, EventArgs e)
         {
-            //(sender as TypeSetupControl).Controls[1].Enabled = false;
-            //if (???)
-            //{
-            //    (sender as TypeSetupControl).Controls[1].Enabled = false;
-            //}
-            //else
-            //{
-            //    (sender as TypeSetupControl).Controls[1].Enabled = true;
-            //}
             if (view.CurrentItem != null)
                 current = view.CurrentItem;
             model.Reload();

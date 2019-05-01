@@ -12,6 +12,7 @@ namespace TestTypeApp.View
         event EventHandler<EventArgs> Save;
         event EventHandler<EventArgs> Delete;
         event EventHandler<EventArgs> Add;
+        event EventHandler<EventArgs> getCurrentItem;
         IList<ClientType> ItemList { set; }
         ClientType CurrentItem { get; set; }
     }

@@ -10,10 +10,10 @@ namespace TestTypeApp.Test.IoC
 {
     public class FormOpener : IFormOpener
     {
-        private readonly Container container;
+        private readonly SimpleInjector.Container container;
         private readonly Dictionary<Type, Form> openedForms;
 
-        public FormOpener(Container container)
+        public FormOpener(SimpleInjector.Container container)
         {
             this.container = container;
             this.openedForms = new Dictionary<Type, Form>();

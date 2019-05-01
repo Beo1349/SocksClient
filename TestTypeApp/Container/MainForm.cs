@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestTypeApp.Container.Forms;
 using TestTypeApp.REST;
 using TestTypeApp.Test.IoC;
 
@@ -46,6 +47,19 @@ namespace TestTypeApp
         private void socksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             form = this.formOpener.ShowModelessForm<SocksForm>();
+            form.MdiParent = this;
+            form.Show();
+        }
+        private void storageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form = this.formOpener.ShowModelessForm<StorageForm>();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form = this.formOpener.ShowModelessForm<RepForm>();
             form.MdiParent = this;
             form.Show();
         }

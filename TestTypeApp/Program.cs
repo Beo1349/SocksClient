@@ -18,7 +18,7 @@ namespace TestTypeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Container container = new Container();
+            SimpleInjector.Container container = new SimpleInjector.Container();
             container.RegisterSingleton<IFormOpener, FormOpener>();
             FormOpener formOpener = new FormOpener(container);
             Application.Run(new MainForm(formOpener));
